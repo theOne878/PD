@@ -23,7 +23,7 @@ void projecttimecalculation()
     }
     else
     {
-        cout << "Not enough time!" << -1*calulation << "hours needed";
+        cout << "Not enough time! " << -1*calulation << "hours needed";
     }
 }
 int main()

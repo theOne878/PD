@@ -29,12 +29,13 @@ studenthour, int studentminute){
         int hour=res/60;
         return "Early\ntest: "+ to_string(res)+"\n"+to_string(hour)+":"+to_string(min)+" hours before the start";
     }
-    if(examhour-studenthour<0){
-    int res=((examhour-studenthour)*60)+(examminute-studentminute))*-1;
+    if(examhour-studenthour<=0){
+    int res=(((examhour-studenthour)*60)+(examminute-studentminute))*-1;
     int min=res%60;
     int hour=res/60;
+    if((examhour-studenthour==0)&&(examminute-studentminute<60)){
+    }
        return "Late\ntest: "+ to_string(res)+"\n"+to_string(hour)+":"+to_string(min)+" hours after the start";
     }
-    return " ";
+    
 }
-

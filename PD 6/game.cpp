@@ -43,7 +43,7 @@ printplayer();
         {
             movePlayerLeft();
         }
-        Sleep(100) ;
+        Sleep(200) ;
 
 }
 }

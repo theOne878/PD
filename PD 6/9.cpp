@@ -15,15 +15,15 @@ int main() {
 }
 
 string checkPointPosition(int h, int x, int y) {
-    if (x < 0 || x > h * 3 || y < 0 || y > 4 * h) {
+    if ((x < 0 || x > h * 3)||( y < 0 || y > 4 * h)||(x<=h&&y>h)) {
         return "Outside";
     }
 
-    if (x % h == 0 && (y == h || y == 3 * h)) {
+    else if (x % h == 0 || (y == h || y == 3 * h)) {
         return "Border";
     }
 
-    if (x > h && x < 2 * h && y > h && y < 3 * h) {
+    else if (x > h && x < 2 * h && y > h && y < 3 * h) {
         return "Inside";
     }
 
