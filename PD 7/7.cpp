@@ -1,31 +1,36 @@
 #include <iostream>
-
 using namespace std;
 
 int main() {
-    int days, doctors = 7, treated = 0, untreated = 0;
-
-    cout << "Enter the number of days for the simulation: ";
+    int days;
+    cout << "Enter Number of days you visited Hospital: ";
     cin >> days;
-
-    for (int day = 1; day <= days; day++) {
-        if (day % 3 == 0 && untreated > treated) {
+	
+	int day = 1;
+    int doctors = 7;
+    int patients;
+    int patientsTreated = 0;
+    int patientsunTreated = 0;
+   	
+    	while(day<=days){
+        if ((patientsTreated < patientsunTreated) && (day % 3 == 0)) {
             doctors++;
-        }
+        	}
+        	
+        cout << "Number of patients who visited hospital on Day" << day << ": ";
+        cin >> patients;
 
-        int patients = doctors;
-        if (untreated > 0) {
-            patients += untreated;
-            untreated = 0;
-        }
+        if (doctors >= patients) {
+            patientsTreated = patientsTreated + patients;
+        	} 
+		else if(doctors < patients) {
+            patientsTreated = patientsTreated + doctors;
+            patientsunTreated = patientsunTreated + (patients - doctors);
+        	}
+        	
+			day++;	
+		}
 
-        int treated_today = min(7, patients);
-        treated += treated_today;
-        untreated += patients - treated_today;
-    }
-
-    cout << "Treated patients: " << treated << endl;
-    cout << "Untreated patients: " << untreated << endl;
-
-    return 0;
+    cout << "Treated Patients: " << patientsTreated << endl;
+    cout << "Untreated Patients: " << patientsunTreated << endl;
 }

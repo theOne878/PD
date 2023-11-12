@@ -1,30 +1,36 @@
-#include <iostream>
+#include<iostream>
 using namespace std;
+bool isPrime(int number);
+double getPrimorial(int number);
 
-bool isPrime(int num) {
-    if (num < 2) {
-        return false;}
-    for (int i = 2; i * i <= num; i++) {
-        if (num % i == 0) return false;
-    }
-    return true;
+int main(){
+	int number;
+	cout << "Enter Number: ";
+	cin >> number;
+	cout << getPrimorial(number);
 }
-
-int primorial(int n) {
-    int result = 1;
-    for (int num = 2; n > 0; num++) {
-        if (isPrime(num)) {
-            result *= num;
-            n--;
-        }
-    }
-    return result;
+bool isPrime(int number)
+{
+		for(int i=2; i<number ; i++)
+		{
+			if(number % i == 0)
+			return false;
+		}
+		return true;
 }
-
-int main() {
-    int n;
-    cout << "Enter a value for n: ";
-    cin >> n;
-    cout << "Primorial = " << primorial(n);
-    return 0;
+double getPrimorial(int number)
+{	
+	int counter=0;
+	int num = 2;
+	double primorial = 1;
+	while(counter<number)
+	{
+		if(isPrime(num)){
+			counter++;
+			primorial = primorial * num;
+ 		}
+ 		
+ 		num++;
+	}
+	return primorial;	
 }
