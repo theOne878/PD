@@ -1,36 +1,29 @@
 #include<iostream>
 using namespace std;
-bool isPrime(int number);
-double getPrimorial(int number);
-
-int main(){
-	int number;
-	cout << "Enter Number: ";
-	cin >> number;
-	cout << getPrimorial(number);
+void checkLargest(string Array[], int num);
+main(){
+    int num;
+    cout<<"Enter the number of words: ";
+    cin >>num;
+    string Array[num];
+    cout<<"Enter the words, one by one: "<<endl;
+    for(int i=0; i<num; i++){
+        cin>>Array[i];
+    }
+    checkLargest(Array, num);
+    }
+void checkLargest(string Array[], int num){
+    string largest="";
+for(int i=0; i<num; i++){
+    int length=Array[i].length();
+    for(int j=0 ;j<length; j++){
+        if(Array[i][j]=='k' || Array[i][j]=='m' || Array[i][j]=='v' || Array[i][j]=='w' || Array[i][j]=='x'){
+            break;
+        }
+        else if(j == length-1 && length > largest.length()){
+            largest=Array[i];
+        }
+    }
 }
-bool isPrime(int number)
-{
-		for(int i=2; i<number ; i++)
-		{
-			if(number % i == 0)
-			return false;
-		}
-		return true;
-}
-double getPrimorial(int number)
-{	
-	int counter=0;
-	int num = 2;
-	double primorial = 1;
-	while(counter<number)
-	{
-		if(isPrime(num)){
-			counter++;
-			primorial = primorial * num;
- 		}
- 		
- 		num++;
-	}
-	return primorial;	
+cout << "Longest 7-segment word: " << largest;
 }
